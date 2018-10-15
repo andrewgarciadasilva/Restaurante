@@ -1,0 +1,32 @@
+﻿@model Restaurante.Models.Restaurant
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deletar</h2>
+<h4>Restaurante</h4>
+<h3>Você realmente deseja deletar este restaurante?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Deletar" class="btn btn-default" /> 
+        @Html.ActionLink("Voltar", "Index", new { id = "voltar" }, new { @class = "btn btn-default" })
+    </div>
+    }
+</div>

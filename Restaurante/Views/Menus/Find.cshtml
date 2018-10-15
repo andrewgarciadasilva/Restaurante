@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Restaurante.Models.Menu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pratos</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Restaurantes
+        </th>
+        <th>
+            Pratos
+        </th>
+        <th>
+            Preços
+        </th>
+        <th>Editar</th>
+        <th>Detalhes</th>
+        <th>Deletar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.ActionLink("*", "Edit", new { id = item.MenuID }, new { @class = "btn btn-default" })
+            </td>
+            <td>
+                @Html.ActionLink("+", "Details", new { id = item.MenuID }, new { @class = "btn btn-default" })
+            </td>
+            <td>
+                @Html.ActionLink("-", "Delete", new { id = item.MenuID }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Voltar", "Index", new { id = "voltar" }, new { @class = "btn btn-default" })
+</div>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Restaurante.Models.Restaurant>
+@{
+    ViewBag.Title = "Restaurantes";
+}
+
+<h2>Restaurantes</h2>
+<div class="jumbotron">
+    <form action="/Restaurants/Find" method="get">
+        <input type="text" class="form-control" name="find" id="find" />
+        <p>
+            <input type="submit" value="Pesquisar" class="btn btn-default" />
+            @Html.ActionLink("Cadastrar", "Create", new { area = "" }, new { @class = "btn btn-default" })
+        </p>
+    </form>
+
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Restaurantes
+        </th>
+        <th>Editar</th>
+        <th>Detalhes</th>
+        <th>Deletar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("*", "Edit", new { id = item.ID }, new { @class = "btn btn-default" }) 
+            </td>
+            <td>
+                @Html.ActionLink("+", "Details", new { id = item.ID }, new { @class = "btn btn-default" })
+            </td>
+            <td>
+                @Html.ActionLink("-", "Delete", new { id = item.ID }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+
+</table>

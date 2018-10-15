@@ -1,0 +1,42 @@
+﻿@model Restaurante.Models.Menu
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Prato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Restaurante
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.Name)
+        </dd>
+
+        <dt>
+            Prato
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Preço
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.MenuID }, new { @class = "btn btn-default" }) 
+    @Html.ActionLink("Voltar", "Index", new { id = "voltar" }, new { @class = "btn btn-default" })
+</p>
